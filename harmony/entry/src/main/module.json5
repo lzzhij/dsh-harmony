@@ -1,0 +1,70 @@
+{
+  "module": {
+    "name": "entry",
+    "type": "entry",
+    "description": "$string:module_desc",
+    "mainElement": "EntryAbility",
+    "deviceTypes": [
+      "phone"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    // ★ 实测：不设这两项时，HAP 里 21 个条目【全部 STORED(未压缩)】，libnode.so 占 120.9MB。
+    //   它们属于 module 级（写进 build-profile.json5 会被 schema 拒绝 ✗）。
+    "compressNativeLibs": true,
+    "extractNativeLibs": true,
+    // 明文 HTTP 配置：
+    //  · API 26 的 module.json5 schema 不接受 cleartextTraffic 字段（PreBuild 会校验失败）
+    //  · 改用 schema 允许的 metadata 指向网络配置文件（resources/base/profile/network_config.json）
+    //  · 若运行时报 -10 ERR_ACCESS_DENIED，把这里的 name 换成你 SDK 文档里的正确键名即可
+    "metadata": [
+      {
+        "name": "ohos.net.network_config",
+        "resource": "$profile:network_config"
+      }
+    ],
+    "requestPermissions": [
+      // ★ 用户目录读写（鸿蒙的"预授权目录"）—— 用来突破沙箱、让 DSH 能读手机真实文件 }, },
+      { "name": "ohos.permission.INTERNET" },
+      // ★ 长时任务：让端上 Node 在熄屏/切后台后不被冻结（实测切后台后 HTTP 请求返回 000）
+      { "name": "ohos.permission.KEEP_BACKGROUND_RUNNING" }
+    ],
+    "abilities": [
+      {
+        "name": "EntryAbility",
+        "srcEntry": "./ets/entryability/EntryAbility.ets",
+        "description": "$string:EntryAbility_desc",
+        "icon": "$media:layered_image",
+        "label": "$string:EntryAbility_label",
+        "startWindowIcon": "$media:startIcon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true,
+        "skills": [
+          {
+            "entities": [
+              "entity.system.home"
+            ],
+            "actions": [
+              "ohos.want.action.home"
+            ]
+          }
+        ]
+      }
+    ],
+    "extensionAbilities": [
+      {
+        "name": "EntryBackupAbility",
+        "srcEntry": "./ets/entrybackupability/EntryBackupAbility.ets",
+        "type": "backup",
+        "exported": false,
+        "metadata": [
+          {
+            "name": "ohos.extension.backup",
+            "resource": "$profile:backup_config"
+          }
+        ],
+      }
+    ]
+  }
+}

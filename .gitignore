@@ -1,0 +1,31 @@
+# ★ 凭据与密钥：绝不入库
+credentials.yaml
+**/rawfile/credentials.yaml
+*.p12
+*.p7b
+*.cer
+*.csr
+*.pem
+*.key
+*.pfx
+.env
+
+# ★ JS 载荷：DSH 本体的完整分发（约 28 MB / 13837 个文件），
+#   公开发布它等于重新分发别人的商业软件 ⇒ 不入库、也不随仓库分发。
+#   它可由 tools/assemble-resfile.mjs 从【使用者自己的 DSH 安装】重新生成。
+harmony/entry/src/main/resources/rawfile/dsh-payload.tar.gz
+
+# 构建产物与二进制
+**/build/
+**/oh_modules/
+**/.hvigor/
+**/.cxx/
+harmony/entry/libs/
+*.so
+*.hap
+*.app
+
+# 解包/临时残留
+_extract/
+*.log
+*.bak*

@@ -1,0 +1,15 @@
+{
+  "network-security-config": {
+    "base-config": {
+      "cleartextTrafficPermitted": true
+    },
+    "domain-config": [
+      {
+        "cleartextTrafficPermitted": true,
+        "domains": [
+          { "include-subdomains": false, "name": "8.137.177.104" }
+        ]
+      }
+    ]
+  }
+}

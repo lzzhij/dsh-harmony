@@ -1,0 +1,66 @@
+/node_modules
+/oh_modules
+/local.properties
+/.idea
+**/build
+/.hvigor
+.cxx
+/.clangd
+/.clang-format
+/.clang-tidy
+**/.test
+/.appanalyzer
+# === git-init-project 标准规则 ===
+# ---- 密钥 / 凭据：绝不入库 ----
+*.p12
+*.p7b
+*.pfx
+*.pem
+*.key
+*.keystore
+*.jks
+*.cer
+*.csr
+id_rsa*
+id_ed25519*
+*_ed25519
+!*.pub
+.credentials*
+*credentials.yaml
+.env
+.env.*
+secrets.*
+**/tools/bin/ssh/*
+!**/tools/bin/ssh/*.pub
+**/config.json
+!**/kit.config.json
+
+# ---- 构建产物 / 依赖 ----
+node_modules/
+oh_modules/
+.hvigor/
+.gradle/
+build/
+out/
+target/
+*.hap
+*.app
+*.apk
+*.exe
+*.dll
+*.zip
+
+# ---- 运行期产物 ----
+*.log
+*.pid
+*.state.json
+**/tools/bin/tunnel/
+**/.cache/
+.DS_Store
+Thumbs.db
+# ---- 备份 / 崩溃日志 / 临时 ----
+*.bak-*
+*.bak
+*.orig
+hs_err_pid*.log
+*.tmp

@@ -1,0 +1,32 @@
+{
+  "modelVersion": "26.0.0",
+  "dependencies": {
+  },
+  "execution": {
+    // 关闭并行：本机内存紧张时，多个 ArkTS 编译 worker 并行会互相抢内存，
+    // 直接导致 "Worker terminated due to reaching memory limit: JS heap out of memory"
+    "parallel": false,
+    // "analyze": "normal",
+    // "daemon": true,
+    "incremental": true
+    // "typeCheck": false
+    // "optimizationStrategy": "memory"
+  },
+  "logging": {
+    // "level": "info"
+  },
+  "debugging": {
+    // "stacktrace": false
+  },
+  "nodeOptions": {
+    // 默认 8192 偏大：同时跑 DevEco + 浏览器 + DSH 时容易把内存抢爆，下调到 3072
+    "maxOldSpaceSize": 3072
+    // "exposeGC": true
+  },
+  "properties": {
+    // 官方报错提示的三项：限制编译并发与内存缓存
+    "hvigor.pool.maxSize": 1,
+    "ohos.arkCompile.maxSize": 1,
+    "hvigor.enableMemoryCache": false
+  }
+}

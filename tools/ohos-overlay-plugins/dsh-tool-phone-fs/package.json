@@ -1,0 +1,13 @@
+{
+  "name": "@local/dsh-tool-phone-fs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": { ".": { "default": "./lib/index.js" }, "./package.json": "./package.json" },
+  "dependencies": {},
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": "*",
+    "@deepseek-ai/schemastery": "*"
+  }
+}

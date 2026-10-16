@@ -1,0 +1,43 @@
+{
+  "note": "M2 入口：由 ArkTS 侧把 script/args 交给 nodeCtl.startBackend()",
+  "scriptRelative": "node_modules/@deepseek-ai/dsh/lib/bin.js",
+  "args": [
+    "web",
+    "--no-open"
+  ],
+  "env": {
+    "UV_USE_IO_URING": "0",
+    "NODE_ENV": "production"
+  },
+  "hostArgv": [
+    "--expose-internals",
+    "--jitless",
+    "--no-verify-heap"
+  ],
+  "dataSubdir": "dsh-harmony-data",
+  "observed": {
+    "verifiedOn": "PC / Node v24.21.0 / 纯 Node（无 Electron）",
+    "stdoutLineExample": "dsh web: http://127.0.0.1:3080/?token=<random>",
+    "port": 3080,
+    "tokenRequired": true,
+    "noTokenStatus": 401,
+    "withTokenStatus": 303,
+    "writesToDshHome": [
+      ".anonymous-user-id",
+      ".credentials.yaml",
+      "profiles/web/*",
+      "storages/workspace.json"
+    ],
+    "note": "WebView 必须加载日志里那条【完整 URL】（含 ?token=）；探测端口时 401/303 都算“服务已起”"
+  },
+  "expectHttp": {
+    "host": "127.0.0.1",
+    "note": "逐次从 node-stdout.log 解析完整 URL（含 token），端口不写死"
+  },
+  "disabledPlugins": [
+    "@deepseek-ai/dsh-sandbox-windows-acl",
+    "@deepseek-ai/dsh-win32-process",
+    "@deepseek-ai/dsh-experimental-speech-to-text-sensevoice",
+    "@deepseek-ai/dsh-host-directory-picker-native"
+  ]
+}

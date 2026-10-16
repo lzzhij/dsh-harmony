@@ -1,0 +1,9 @@
+{
+  "name": "entry",
+  "version": "1.0.0",
+  "description": "DSH on HarmonyOS —— NAPI host shell + ArkWeb UI",
+  "main": "",
+  "author": "",
+  "license": "",
+  "dependencies": {}
+}

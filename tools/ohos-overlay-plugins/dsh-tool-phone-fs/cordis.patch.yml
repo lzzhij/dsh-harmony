@@ -1,0 +1,4 @@
+# 给端上 DSH 插入本项目的手机文件系统工具（纯 JS，覆盖 rm/mv/cp/mkdir 等内置工具没有的能力）
+- insert:
+    - id: tool-phone-fs
+      name: '@local/dsh-tool-phone-fs'

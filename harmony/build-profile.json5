@@ -1,0 +1,72 @@
+{
+  "app": {
+    "products": [
+      {
+        // 本工程暂不配置签名（未签名包可构建但不可安装）；装设备需一个匹配 com.dsh.harmony 的 Profile
+        "name": "default",
+        "signingConfig": "default",
+        "targetSdkVersion": "26.0.0",
+        "compatibleSdkVersion": "26.0.0",
+        "runtimeOS": "HarmonyOS",
+        "buildOption": {
+          "strictMode": {
+            "caseSensitiveCheck": true,
+            "useNormalizedOHMUrl": false
+          }
+        }
+      },
+      {
+        // 真机测试用：hdc 安装走这个产品（assembleHap -p product=test）
+        "name": "test",
+        "signingConfig": "default",
+        "targetSdkVersion": "26.0.0",
+        "compatibleSdkVersion": "26.0.0",
+        "runtimeOS": "HarmonyOS",
+        "buildOption": {
+          "strictMode": {
+            "caseSensitiveCheck": true,
+            "useNormalizedOHMUrl": false
+          }
+        }
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug"
+      },
+      {
+        "name": "release"
+      }
+    ],
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "<DEVECO_SIGN_DIR>\\default_harmony_o5ZirQVqqwztuIqPC7chXSw6tEBl9y1m9bVZ7nBMAB8=.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "",
+          "profile": "<DEVECO_SIGN_DIR>\\default_harmony_o5ZirQVqqwztuIqPC7chXSw6tEBl9y1m9bVZ7nBMAB8=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "<DEVECO_SIGN_DIR>\\default_harmony_o5ZirQVqqwztuIqPC7chXSw6tEBl9y1m9bVZ7nBMAB8=.p12",
+          "storePassword": ""
+        }
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default",
+            "test"
+          ]
+        }
+      ]
+    }
+  ]
+}

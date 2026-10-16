@@ -1,0 +1,29 @@
+OpenHarmony 运行包清单校验报告
+生成自: desktop-runtime.json  (win32-x64)
+
+体积:
+  原始    12513 文件    344.2 MB
+  KEEP    11419 文件    106.4 MB
+  DROP     1072 文件    237.7 MB
+  REVIEW     22 文件      0.1 MB
+
+sharedPackages: 287 → 287（裁掉 0 个纯平台包）
+overlay（覆盖/新增）: 2 个文件
+
+校验项:
+  [✓] 平台字段已改为 openharmony/arm64   — openharmony/arm64
+  [✓] 清单内已无任何二进制/原生模块   — 0 个
+  [✓] 被禁用插件仍在包内（供配置禁用）: @deepseek-ai/dsh-sandbox-windows-acl   — ✓
+  [✓] 被禁用插件仍在包内（供配置禁用）: @deepseek-ai/dsh-win32-process   — ✓
+  [✓] 被禁用插件仍在包内（供配置禁用）: @deepseek-ai/dsh-experimental-speech-to-text-sensevoice   — ✓
+  [✓] 被禁用插件仍在包内（供配置禁用）: @deepseek-ai/dsh-host-directory-picker-native   — ✓
+  [✓] 清单内无任何仍命中 DROP 规则的文件   — 0 个
+  [✓] 前端 UI 插件包齐备   — 53 个 dsh-client-ui-* 包
+  [✓] Web 前端入口 index.html 在清单内   — node_modules/@deepseek-ai/dsh-web-frontend/dist/index.html
+  [✓] 核心包存活: @deepseek-ai/dsh   — ✓
+  [✓] 核心包存活: @deepseek-ai/cordis   — ✓
+  [✓] 核心包存活: @deepseek-ai/dsh-app-boot   — ✓
+  [✓] 核心包存活: @deepseek-ai/dsh-web-frontend   — ✓
+  [✓] 清单内已无 .node 原生模块（改为 JS 桩/懒加载）   — 0 个
+
+结论: 全部通过 ✓ 清单可用于 M2 打包
